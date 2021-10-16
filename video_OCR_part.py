@@ -16,9 +16,13 @@ frameHeight = 480
 cap = cv2.VideoCapture("yt1s.com - Maroon 5  Memories Lyrics_480p.mp4")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
+
+kernel = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])   #kernel value for sharpening
+
 while True:
     success, img = cap.read()
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = cv2.filter2D(src=img, ddepth=-1, kernel=kernel)
     cv2.imshow("Result_initial", img)
 
     data_obj = pyt.image_to_data(img, config=tessdata_dir_config)
