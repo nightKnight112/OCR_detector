@@ -1,5 +1,5 @@
 # OCR_Detector_CV
-A Object detector which identifies the classes of the objects in an image or a video
+A OCR detector which identifies text in images, video feeds(both in videos and webcam feeds) and also by capturing the entire screen
 
 
 ## NOTES
