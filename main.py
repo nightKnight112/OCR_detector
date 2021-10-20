@@ -12,6 +12,7 @@ frameWidth = 640
 frameHeight = 480
 
 #rescale and capture function for screen capture configuration
+#extra functions, can be used if needed
 def captureScreen():
     capScr = np.array(ImageGrab.grab(bbox=None))
     capScr = cv2.cvtColor(capScr, cv2.COLOR_RGB2BGR)
@@ -40,7 +41,7 @@ if int(i) == 1:
     #h_img, w_img, _ = img.shape
     #print(h_img, w_img)
 
-    data_obj = pyt.image_to_data(img, config=tessdata_dir_config)
+    data_obj = pyt.image_to_data(img, config=tessdata_dir_config)   #use pyt.image_to_data() is individual charecter recog is needed
 
     for count, data in enumerate(data_obj.splitlines()):
         if count != 0:
@@ -94,7 +95,7 @@ elif int(i) == 2:
             #uncomment if initial unprocessed frame display is req
             #cv2.imshow('Screen Capture', frm)
 
-            data_obj = pyt.image_to_data(frm, config=tessdata_dir_config)
+            data_obj = pyt.image_to_data(frm, config=tessdata_dir_config)   #use pyt.image_to_data() is individual charecter recog is needed
 
             for count, data in enumerate(data_obj.splitlines()):
                 if count != 0:
