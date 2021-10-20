@@ -26,7 +26,7 @@ try:
 except ValueError:
     cap = cv2.VideoCapture(strs)
 
-print("starting OCR....press 'Q' to exit process", sep="\n")
+print("starting OCR....press 'E' to exit process", sep="\n")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 
@@ -63,7 +63,7 @@ while True:
     cv2.imshow("frm_final", img)
 
     #exit sequence
-    if cv2.waitKey(1) & 0xFF == ord('q'):   # press 'q' to exit
+    if cv2.waitKey(1) & 0xFF == ord('e'):   # press 'e' to exit
         break
 
 cap.release()

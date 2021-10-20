@@ -35,7 +35,7 @@ i = input()
 if int(i) == 1:
     print("Enter full image path: ")
     img = cv2.imread(input())
-    print("to stop execution, press Q")
+    print("to stop execution, press 'E'")
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     #h_img, w_img, _ = img.shape
@@ -53,13 +53,17 @@ if int(i) == 1:
 
     cv2.imshow("final", img)
 
-    if cv2.waitKey(0) or 0xff == ord('q'):
+    #exit sequence
+    if cv2.waitKey(0) or 0xff == ord('e'):
         sys.exit()
 
 
 #for screen capture
 elif int(i) == 2:
-    print("Starting screen capture, press Q to exit")
+
+    print("Starting screen capture, press 'E' to exit",
+          "OCR processed screen capture will be saved as 'screen_cap_rcrd_final.avi' in the project dir",
+          sep="\n", end="\n")
 
     # screen capture record settings
 
@@ -109,7 +113,8 @@ elif int(i) == 2:
             output_final.write(frm)
             cv2.imshow("frm_final", frm)
 
-            if cv2.waitKey(1) & 0xff == ord('q'):
+            #exit sequence
+            if cv2.waitKey(1) & 0xff == ord('e'):
                 output_final.release()
                 sys.exit()
 
